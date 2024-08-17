@@ -31,14 +31,16 @@
 	<div  class="container" style="display:flex;margin-top:20px" > 
 		
 	    <div >
-			<div class="fixed-top">
+			<div class="">
 				<nav class="nav flex-column">
-				 <a class="nav-link active" href="#Introdução">1 - Introdução</a>
-				 <a class="nav-link" href="#requisitos_funcionais">2 - Requisitos Funcionais</a>
+				 <a class="nav-link active" href="#introducao"><b>1 - Introdução</b></a>
+				 <a class="nav-link" href="#requisitos_funcionais"><b>2 - Requisitos Funcionais</b></a>
 				 <a class="nav-link" href="#">Link</a>
 				 <a class="nav-link disabled" href="#">Desativado</a>
 				</nav>
 			</div>
+			
+			
 	    </div>		
 	    <div style="margin:20px;"></div>
 	    <br>
@@ -48,52 +50,85 @@
 	    <div>
 			<h3 id="introducao" >1 - Introdução </h3>
 			<br>
-			<p class="text-sm-left">Tem-se observado a necessidade crescente que se tem em haver um maior controle dos dados gerados a              </p>
-			<p class="text-sm-left">partir das atividades praticadas no setor de expedição.                                                         </p>
-			<p class="text-sm-left">Estas atividades, por sua vez, vão desde o processo de faturamento até a remessa final do produto para o        </p>
-			<p class="text-sm-left">consumidor final.                                                                                               </p>
-			<p class="text-sm-left">Assim, a partir desta necessidade, surgiu a ideia de se desenvolver junto ao Protheus uma rotina que se         </p>
-			<p class="text-sm-left">propõe a registrar os dados adjacentes ao fluxo em questão.                                                     </p>
-			<p class="text-sm-left">Trata-se de um artefato sistêmico simples, porém eficiente, que torna possível um monitoramento mais            </p>
-			<p class="text-sm-left">detalhado das atividades envolvidas e, assim, trazendo uma visão mais abrangente do ciclo de vida do            </p>
-			<p class="text-sm-left">pedido de venda.                                                                                                </p>
-			<p class="text-sm-left">Desta forma, a proposta principal deste trabalho é descrever, de forma simples, a implementação da              </p>
-			<p class="text-sm-left">solução apresentada, bem como as variáveis técnicas envolvidas na construção da mesma, tais como:               </p>
-			<p class="text-sm-left">																										        </p>
-			<p class="text-sm-left">caminho da rotina, parâmetros envolvidos, pontos de entrada utilizados, campos                                  </p>
-			<p class="text-sm-left">																										        </p>
-			<p class="text-sm-left">customizados, etc.                                                                                              </p>
+			<p class="text-sm-left">Tem-se observado a necessidade crescente que se tem em haver um maior controle dos dados gerados a              		</p>
+			<p class="text-sm-left">partir das atividades praticadas no setor de expedição.                                                         		</p>
+			<p class="text-sm-left">Estas atividades, por sua vez, vão desde o processo de faturamento até a remessa final do produto para o        		</p>
+			<p class="text-sm-left">consumidor final.                                                                                               		</p>
+			<p class="text-sm-left">Assim, a partir desta necessidade, surgiu a ideia de se desenvolver junto ao Protheus uma rotina que se         		</p>
+			<p class="text-sm-left">propõe a registrar os dados adjacentes ao fluxo em questão.                                                     		</p>
+			<p class="text-sm-left">Trata-se de um artefato sistêmico simples, porém eficiente, que torna possível um monitoramento mais            		</p>
+			<p class="text-sm-left">detalhado das atividades envolvidas e, assim, trazendo uma visão mais abrangente do ciclo de vida do            		</p>
+			<p class="text-sm-left">pedido de venda.                                                                                                		</p>
+			<p class="text-sm-left">Desta forma, a proposta principal deste trabalho é descrever, de forma simples, a implementação da              		</p>
+			<p class="text-sm-left">solução apresentada, bem como as variáveis técnicas envolvidas na construção da mesma, tais como:               		</p>
+			<p class="text-sm-left">																										        		</p>
+			<p class="text-sm-left">caminho da rotina, parâmetros envolvidos, pontos de entrada utilizados, campos                                  		</p>
+			<p class="text-sm-left">																										        		</p>
+			<p class="text-sm-left">customizados, etc.                                                                                              		</p>
 			<br>
-			
 			
 			<h3 id="requisitos_funcionais">2 - Requisitos Funcionais </h3>
 			<br>
-			<p class="text-sm-left">Em linhas gerais, requisitos funcionais representam um conjunto de funcionalidades que o sistema deve 	        </p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left">realizar de maneira a atender a regra de negócio proposta, dispondo dos mecanismos necessários                  </p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left">que torna possível a execução das tarefas.  Estes mesmos requisitos podem ser listados da seguinte forma:       </p>
+			<p class="text-sm-left">Em linhas gerais, requisitos funcionais representam um conjunto de funcionalidades que o sistema deve 	        		</p>
+			<p class="text-sm-left">                                                                                                                		</p>
+			<p class="text-sm-left">realizar de maneira a atender a regra de negócio proposta, dispondo dos mecanismos necessários                  		</p>
+			<p class="text-sm-left">                                                                                                                		</p>
+			<p class="text-sm-left">que torna possível a execução das tarefas.  Estes mesmos requisitos podem ser listados da seguinte forma:       		</p>
 			<br>
-			<p class="text-sm-left"><b>2.1</b> - Deverá haver um recurso que permite ao usuário definir filtros por meios dos quais serão listados 	</p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left"> todos os pedidos de venda a serem conferidos;                                                                  </p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left">                                                                                                                </p>
+			<p class="text-sm-left"><b>2.1</b> - Deverá haver um recurso que permite ao usuário definir filtros por meios dos quais serão listados 		    </p>
+			<p class="text-sm-left">                                                                                                                	    </p>
+			<p class="text-sm-left"> todos os pedidos de venda a serem conferidos;                                                                  	    </p>
+			<p class="text-sm-left">                                                                                                                	    </p>
+			<p class="text-sm-left">                                                                                                                	    </p>
 			<br>
-			<p class="text-sm-left"><b>2.2</b> - A busca pelos pedidos se utilizará, sempre, da referência do cliente presente no mesmo pedido      </p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left"> informado no campo de procura. Desta forma, a partir da identificação deste cliente, o sistema irá efetivar a  </p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left"> busca dos dados vinculados a ele (cliente);                                                                    </p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left"> 2.3 – Para efeito de listagem/conferência, todos os pedidos deverão estar, obrigatoriamente,                   </p>
-			<p class="text-sm-left">                                                                                                                </p>
-			<p class="text-sm-left"> faturados dentro de um intervalo de tempo previamente estabelecido;                                            </p>
-			
-			<div class="alert alert-danger" role="alert">
-				Um simples alerta danger. Olha só!
+			<p class="text-sm-left"><b>2.2</b> - A busca pelos pedidos se utilizará, sempre, da referência do cliente presente no mesmo pedido      		</p>
+			<p class="text-sm-left">                                                                                                                		</p>
+			<p class="text-sm-left"> informado no campo de procura. Desta forma, a partir da identificação deste cliente, o sistema irá efetivar a  		</p>
+			<p class="text-sm-left">                                                                                                                		</p>
+			<p class="text-sm-left"> busca dos dados vinculados a ele (cliente);                                                                    		</p>
+			<p class="text-sm-left">                                                                                                                		</p>
+			<p class="text-sm-left">                                                                                                                		</p>
+			<p class="text-sm-left"><b>2.3</b> – Para efeito de listagem/conferência, todos os pedidos deverão estar, obrigatoriamente,                     </p>
+			<p class="text-sm-left">                                                                                                                		</p>
+			<p class="text-sm-left"> faturados dentro de um intervalo de tempo previamente estabelecido;                                            		</p>
+			<br>
+			<div class="alert alert-warning" role="alert">
+				<b>Por padrão, este prazo corresponde a sete dias(7) após o faturamento!!!</b>
 			</div>
+			<br>
+			<p class="text-sm-left"><b>2.4</b> - Os filtros estabelecidos deverão compreender as opções de <b>Cliente, Distribuidor, Grupo Clientes</b> e 	</p>
+			<p class="text-sm-left">                                                                                                        				</p>
+			<p class="text-sm-left"><b>Motoboy</b>. Assim, a partir da inserção da chave (Filial + Pedido de Venda) cada um deverá ter o seguinte  			</p>
+			<p class="text-sm-left">                                                                                                        				</p>
+			<p class="text-sm-left">comportamento no que tange a busca dos dados:                                                           				</p>
+			<p class="text-sm-left">                                                                                                        				</p>
+			<p class="text-sm-left">Cliente: Buscar apenas os pedidos que pertencem ao cliente do mesmo pedido utilizado na busca           				</p>
+			<p class="text-sm-left">                                                                                                        				</p>
+			<p class="text-sm-left"><b>(Código + Loja)</b>;																									</p>
+			<p class="text-sm-left">Distribuidor: Serão listados todos os pedidos ligados ao distribuidor do cliente <b>(Vendedor + Grupo de 				</p>
+			<p class="text-sm-left">Vendas + Ramo)</b>;                                                                                       				</p>
+			<p class="text-sm-left">                                                                                                      				    </p>
+			<p class="text-sm-left">Grupo Clientes: Apenas os pedidos associados ao grupo de venda do cliente serão exibidos (Grupo de    				    </p>
+			<p class="text-sm-left">Vendas);                                                                                              				    </p>
+			<p class="text-sm-left">																									  				    </p>
+			<p class="text-sm-left"><b>Motoboy</b>: Serão disponibilizados os pedidos que pertencem a rota motoboy do cliente presente (Rota).   			</p>
+			<p class="text-sm-left"><b>2.5</b> - O sistema deverá dispor de três modalidades de conferências, a saber: <b>Conferência Principal</b>, 	</p>	
+			<p class="text-sm-left">																											</p>
+			<p class="text-sm-left"><b>Checklist de Expedição e Picking de Retorno do Motoboy</b>:                                                     </p>
+			<p class="text-sm-left">																											</p>
+			</br>
+			<p class="text-sm-left"><b>Conferência Principal</b>: Representa a primeira conferência imediatamente após o faturamento do pedido;        </p>
+			<p class="text-sm-left">																											</p>
+			<p class="text-sm-left"><b>Expedição e Picking</b>: Trata-se da conferência realizada após a Conferência principal. Nesta modalidade,      </p>
+			<p class="text-sm-left">																											</p>
+			<p class="text-sm-left">será possível avaliar os pedidos que já passaram pela primeira conferência.                                 </p>
+			<p class="text-sm-left">																											</p>
+			<p class="text-sm-left">Retorno do Motoboy: Esta conferência é a última a ser efetivada. Não há limite de tempo para sua execução e </p>
+			<p class="text-sm-left">tem como pré-requisito fundamental a execução das duas primeiras conferências anteriores. Por ocasião do    </p>
+			<p class="text-sm-left">retorno do motoboy do cliente, se deverá registrar os dados pertinente ao pedido, tais como a data do seu   </p>
+			<p class="text-sm-left">retorno / protocolo e o responsável pelo recebimento do produto, na extremidade final, do lado do cliente;  </p>
+
+			
 			
 			
 			
