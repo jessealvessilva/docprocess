@@ -31,7 +31,7 @@
 	<div  class="container" style="display:flex;margin-top:20px" > 
 		
 	    <div >
-			<div class="">
+			<div >
 				<nav class="nav flex-column">
 				 <a class="nav-link active" href="#introducao"><b>1 - Introdução</b></a>
 				 <a class="nav-link" href="#requisitos_funcionais"><b>2 - Requisitos Funcionais</b></a>
@@ -66,8 +66,8 @@
 			<p class="text-sm-left">																										        		</p>
 			<p class="text-sm-left">customizados, etc.                                                                                              		</p>
 			<br>
-			
 			<h3 id="requisitos_funcionais">2 - Requisitos Funcionais </h3>
+			
 			<br>
 			<p class="text-sm-left">Em linhas gerais, requisitos funcionais representam um conjunto de funcionalidades que o sistema deve 	        		</p>
 			<p class="text-sm-left">                                                                                                                		</p>
@@ -92,10 +92,7 @@
 			<p class="text-sm-left">                                                                                                                		</p>
 			<p class="text-sm-left"> faturados dentro de um intervalo de tempo previamente estabelecido;                                            		</p>
 			<br>
-			<div class="alert alert-warning" role="alert">
-				<b>Por padrão, este prazo corresponde a sete dias(7) após o faturamento!!!</b>
-			</div>
-			<br>
+			
 			<p class="text-sm-left"><b>2.4</b> - Os filtros estabelecidos deverão compreender as opções de <b>Cliente, Distribuidor, Grupo Clientes</b> e 	</p>
 			<p class="text-sm-left">                                                                                                        				</p>
 			<p class="text-sm-left"><b>Motoboy</b>. Assim, a partir da inserção da chave (Filial + Pedido de Venda) cada um deverá ter o seguinte  			</p>
@@ -112,26 +109,47 @@
 			<p class="text-sm-left">Vendas);                                                                                              				    </p>
 			<p class="text-sm-left">																									  				    </p>
 			<p class="text-sm-left"><b>Motoboy</b>: Serão disponibilizados os pedidos que pertencem a rota motoboy do cliente presente (Rota).   			</p>
-			<p class="text-sm-left"><b>2.5</b> - O sistema deverá dispor de três modalidades de conferências, a saber: <b>Conferência Principal</b>, 	</p>	
-			<p class="text-sm-left">																											</p>
-			<p class="text-sm-left"><b>Checklist de Expedição e Picking de Retorno do Motoboy</b>:                                                     </p>
-			<p class="text-sm-left">																											</p>
 			</br>
-			<p class="text-sm-left"><b>Conferência Principal</b>: Representa a primeira conferência imediatamente após o faturamento do pedido;        </p>
-			<p class="text-sm-left">																											</p>
-			<p class="text-sm-left"><b>Expedição e Picking</b>: Trata-se da conferência realizada após a Conferência principal. Nesta modalidade,      </p>
-			<p class="text-sm-left">																											</p>
-			<p class="text-sm-left">será possível avaliar os pedidos que já passaram pela primeira conferência.                                 </p>
-			<p class="text-sm-left">																											</p>
-			<p class="text-sm-left">Retorno do Motoboy: Esta conferência é a última a ser efetivada. Não há limite de tempo para sua execução e </p>
-			<p class="text-sm-left">tem como pré-requisito fundamental a execução das duas primeiras conferências anteriores. Por ocasião do    </p>
-			<p class="text-sm-left">retorno do motoboy do cliente, se deverá registrar os dados pertinente ao pedido, tais como a data do seu   </p>
-			<p class="text-sm-left">retorno / protocolo e o responsável pelo recebimento do produto, na extremidade final, do lado do cliente;  </p>
-
+			<p class="text-sm-left"><b>2.5</b> - O sistema deverá dispor de três modalidades de conferências, a saber: <b>Conferência Principal</b>, 		</p>	
+			<p class="text-sm-left">																														</p>
+			<p class="text-sm-left"><b>Checklist de Expedição e Picking de Retorno do Motoboy</b>:                                                     		</p>
+			<p class="text-sm-left">																														</p>
+			</br>
+			<p class="text-sm-left"><b>Conferência Principal</b>: Representa a primeira conferência imediatamente após o faturamento do pedido;        		</p>
+			<p class="text-sm-left">																														</p>
+			<p class="text-sm-left"><b>Expedição e Picking</b>: Trata-se da conferência realizada após a Conferência principal. Nesta modalidade,      		</p>
+			<p class="text-sm-left">																														</p>
+			<p class="text-sm-left">será possível avaliar os pedidos que já passaram pela primeira conferência.                                 			</p>
+			<p class="text-sm-left">																														</p>
+			<p class="text-sm-left"><b>Retorno do Motoboy</b>: Esta conferência é a última a ser efetivada. Não há limite de tempo para sua execução e 		</p>
+			<p class="text-sm-left">tem como pré-requisito fundamental a execução das duas primeiras conferências anteriores. Por ocasião do    			</p>
+			<p class="text-sm-left">retorno do motoboy do cliente, se deverá registrar os dados pertinente ao pedido, tais como a data do seu   			</p>
+			<p class="text-sm-left">retorno / protocolo e o responsável pelo recebimento do produto, na extremidade final, do lado do cliente;  			</p>
+			</br>
+			<p class="text-sm-left"><b>2.6</b> – Tanto na modalidade <b>Conferência Principal</b> quanto no <b>Checklist de Expedição</b>,         			</p>
+			<p class="text-sm-left"> os filtros de busca deverão ser os mesmos, com exceção de que, nesta última, a data limite deverá ser o dia corrente.  </p>
+			</br>
+			<p class="text-sm-left"> <b>2.7</b> – A exibição dos pedidos para conferência deverá estar condicionada ao intervalo de tempo-limite de Sete   	</p>
+			<p class="text-sm-left">                                                                                                              			</p>
+			<p class="text-sm-left"> (7) dias a contar a partir da data de faturamento. Portanto, somente os pedidos que foram faturados em um    			</p>
+			<p class="text-sm-left">                                                                                                              			</p>
+			<br>
+			<p class="text-sm-left">                                                                                                              			</p>
+			<p class="text-sm-left">                                                                                                              			</p>
+			<p class="text-sm-left"><b>3.0</b> – Todos os Pedidos listados deverão estar, obrigatoriamente, faturados dentro de um intervalo de tempo   	</p>
+			<p class="text-sm-left"> de, no máximo, sete dias passados;                                                                           			</p>
+			<br>
+			<p class="text-sm-left"><b>4.0</b> – Deverá ser permitida a ação da troca de rota padrão a ser expedida. Sabe-se que esta rota             	 	</p>
+			<p class="text-sm-left"> é carregada no ato da busca do pedido. Desta forma, o usuário poderá efetivar essa troca e, ao final,        			</p>
+			<p class="text-sm-left"> o sistema irá considerar a última em detrimento da primeira.                                                 			</p>
+			<br>
+			<p class="text-sm-left"><b>5.0</b> – O filtro correspondente a <b>Motoboy</b> deve listar apenas, os pedidos que já passaram Conferência Principal,	</p>
+			<p class="text-sm-left"> e que estejam dentro do limite de horário de faturamento estabelecido na rota/transportadora associada;      			</p>
+			<p class="text-sm-left"> 																											  			</p>
 			
-			
-			
-			
+			<div class="alert alert-warning" role="alert">
+				<b>Por padrão, este prazo corresponde a sete dias(7) após o faturamento!!!</b>
+			</div>		
 		
 		</div>
 	  
