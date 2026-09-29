@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Consulta de Pedido</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4ecf7 100%);
+      min-height: 100vh;
+    }
+    .card-consulta {
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 8px 28px rgba(0,0,0,.08);
+    }
+    .header-logo {
+      width: 46px; height: 46px;
+      background: #0d6efd;
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-weight: 700; font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container py-5" style="max-width:680px">
+
+    <!-- Cabeçalho -->
+    <div class="d-flex align-items-center gap-3 mb-4">
+      <div class="header-logo">P</div>
+      <div>
+        <h4 class="mb-0 fw-bold">Consulta de Pedido</h4>
+        <small class="text-muted">Informe os dados abaixo para consultar</small>
+      </div>
+    </div>
+
+    <!-- Card do formulário -->
+    <div class="card card-consulta mb-3">
+      <div class="card-body p-4">
+
+        <form id="formConsulta">
+          <div class="mb-3">
+            <label class="form-label fw-semibold">Número do Pedido</label>
+            <input type="text" class="form-control form-control-lg"
+                   id="pedido" placeholder="Ex: 123456" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="form-label fw-semibold">CPF / CNPJ</label>
+            <input type="text" class="form-control form-control-lg"
+                   id="documento" placeholder="Ex: 000.000.000-00" required>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold">
+            Consultar
+          </button>
+        </form>
+
+      </div>
+    </div>
+
+    <!-- Área de resultado (oculta por padrão) -->
+    <div id="resultado" class="d-none">
+
+      <!-- Exemplo de sucesso -->
+      <div class="card card-consulta mb-3 border-start border-4 border-success">
+        <div class="card-body p-4">
+          <div class="d-flex justify-content-between align-items-start mb-3">
+            <h5 class="mb-0 fw-bold">Pedido #123456</h5>
+            <span class="badge bg-success">Aprovado</span>
+          </div>
+          <dl class="row mb-0">
+            <dt class="col-sm-4 text-muted fw-normal">Cliente</dt>
+            <dd class="col-sm-8 fw-semibold">João da Silva</dd>
+
+            <dt class="col-sm-4 text-muted fw-normal">Data</dt>
+            <dd class="col-sm-8">15/03/2026</dd>
+
+            <dt class="col-sm-4 text-muted fw-normal">Valor Total</dt>
+            <dd class="col-sm-8 fw-semibold">R$ 1.249,90</dd>
+
+            <dt class="col-sm-4 text-muted fw-normal">Status</dt>
+            <dd class="col-sm-8">Em separação</dd>
+          </dl>
+        </div>
+      </div>
+
+    </div>
+
+    <p class="text-center text-muted small mt-4 mb-0">
+      Em caso de dúvidas, entre em contato com o suporte.
+    </p>
+
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Apenas para demonstração visual — simula retorno da API
+    document.getElementById('formConsulta').addEventListener('submit', (e) => {
+      e.preventDefault();
+      document.getElementById('resultado').classList.remove('d-none');
+    });
+  </script>
+</body>
+</html>
