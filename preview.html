@@ -98,29 +98,22 @@
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
-    // Apenas para demonstração visual — simula retorno da API
-    document.getElementById('formConsulta').addEventListener('submit', (e) => {
-      //e.preventDefault();
-      //document.getElementById('resultado').classList.remove('d-none');
-	  document.getElementById('formConsulta').addEventListener('submit', async (e) => {
-  	 console.log("Passou aqui 1");
-		  e.preventDefault();
+    document.getElementById('formConsulta').addEventListener('submit', async (e) => {
+  e.preventDefault();
 
   const pedido = document.getElementById('pedido').value.trim();
   const documento = document.getElementById('documento').value.trim();
 
- 
   // AQUI é onde a requisição acontece
   const resp = await fetch('https://purple-resonance-193c.raspy-pond-9283.workers.dev/', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ pedido, documento })
   });
-	console.log("Passou aqui 2");
+
   const data = await resp.json();
-  console.log("Retorno da API Protheus:", data);
+  // ... renderizar o resultado
 });
-    });
   </script>
 </body>
 </html>
