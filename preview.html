@@ -100,8 +100,24 @@
   <script>
     // Apenas para demonstração visual — simula retorno da API
     document.getElementById('formConsulta').addEventListener('submit', (e) => {
-      e.preventDefault();
-      document.getElementById('resultado').classList.remove('d-none');
+      //e.preventDefault();
+      //document.getElementById('resultado').classList.remove('d-none');
+	  document.getElementById('formConsulta').addEventListener('submit', async (e) => {
+  e.preventDefault();
+
+  const pedido = document.getElementById('pedido').value.trim();
+  const documento = document.getElementById('documento').value.trim();
+
+  // AQUI é onde a requisição acontece
+  const resp = await fetch('https://purple-resonance-193c.raspy-pond-9283.workers.dev/', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ pedido, documento })
+  });
+
+  const data = await resp.json();
+  // ... renderizar o resultado
+});
     });
   </script>
 </body>
