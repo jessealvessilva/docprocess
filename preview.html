@@ -108,13 +108,14 @@
   const pedido = document.getElementById('pedido').value.trim();
   const documento = document.getElementById('documento').value.trim();
 
+  console.log("Passou aqui 1");
   // AQUI é onde a requisição acontece
   const resp = await fetch('https://purple-resonance-193c.raspy-pond-9283.workers.dev/', {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ pedido, documento })
   });
-
+	console.log("Passou aqui 2");
   const data = await resp.json();
   console.log("Retorno da API Protheus:", data);
 });
