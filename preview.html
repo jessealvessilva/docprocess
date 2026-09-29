@@ -110,7 +110,7 @@
 
   // AQUI é onde a requisição acontece
   const resp = await fetch('https://purple-resonance-193c.raspy-pond-9283.workers.dev/', {
-    method: 'POST',
+    method: 'GET',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ pedido, documento })
   });
