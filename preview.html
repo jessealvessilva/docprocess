@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Consulta</title>
+  <title>Consulta de Pedidos</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
@@ -21,44 +21,32 @@
       border-radius: 10px;
       display: flex; align-items: center; justify-content: center;
       color: #fff; font-weight: 700; font-size: 20px;
+      flex-shrink: 0;
+    }
+    .pedido-item {
+      cursor: pointer;
+      transition: background .15s;
+    }
+    .pedido-item:hover {
+      background: #f8f9fa;
     }
   </style>
 </head>
 <body>
 
-  <div class="container py-5" style="max-width:680px">
+  <div class="container py-4 py-md-5" style="max-width:680px">
 
+    <!-- Cabeçalho -->
     <div class="d-flex align-items-center gap-3 mb-4">
       <div class="header-logo">P</div>
       <div>
-        <h4 class="mb-0 fw-bold">Consulta de Pedido</h4>
-        <small class="text-muted">Informe os dados abaixo para consultar</small>
+        <h4 class="mb-0 fw-bold">Consulta de Pedidos</h4>
+        <small class="text-muted" id="subtitulo">Informe seu CPF ou CNPJ para começar</small>
       </div>
     </div>
 
-    <div class="card card-consulta mb-3">
-      <div class="card-body p-4">
-        <form id="formConsulta">
-          <div class="mb-3">
-            <label class="form-label fw-semibold">Número do Pedido</label>
-            <input type="text" class="form-control form-control-lg"
-                   id="pedido" placeholder="Ex: 123456" required>
-          </div>
-
-          <div class="mb-4">
-            <label class="form-label fw-semibold">CPF / CNPJ</label>
-            <input type="text" class="form-control form-control-lg"
-                   id="documento" placeholder="Ex: 000.000.000-00" required>
-          </div>
-
-          <button type="submit" class="btn btn-primary btn-lg w-100 fw-semibold">
-            Consultar
-          </button>
-        </form>
-      </div>
-    </div>
-
-    <div id="resultado"></div>
+    <!-- Área dinâmica (a SPA troca o conteúdo aqui) -->
+    <div id="app"></div>
 
     <p class="text-center text-muted small mt-4 mb-0">
       Em caso de dúvidas, entre em contato com o suporte.
@@ -66,79 +54,6 @@
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script>
-    const API_URL = "https://purple-resonance-193c.raspy-pond-9283.workers.dev";
-
-    document.getElementById('formConsulta').addEventListener('submit', async (e) => {
-      e.preventDefault();
-
-      const resultado = document.getElementById('resultado');
-      resultado.innerHTML = `<div class="text-muted">Consultando...</div>`;
-
-      const pedido = document.getElementById('pedido').value.trim();
-      const documento = document.getElementById('documento').value.trim();
-
-      try {
-        const resp = await fetch(API_URL, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ pedido, documento })
-        });
-
-        if (!resp.ok) throw new Error(`HTTP ${resp.status}`);
-
-        const data = await resp.json();
-        console.log("Retorno da API:", data);
-        renderResultado(data);
-
-      } catch (err) {
-        resultado.innerHTML = `
-          <div class="alert alert-danger">
-            Erro ao consultar: ${err.message}
-          </div>`;
-      }
-    });
-
-    function renderResultado(data) {
-      const div = document.getElementById('resultado');
-
-      if (!data.items || data.items.length === 0) {
-        div.innerHTML = `<div class="alert alert-warning">Nenhum registro encontrado.</div>`;
-        return;
-      }
-
-      const linhas = data.items.map(item => `
-        <tr>
-          <td>${item.id ?? '-'}</td>
-          <td>${item.name ?? '-'}</td>
-          <td>${item.phone ?? '-'}</td>
-          <td>${item.tipo ?? '-'}</td>
-          <td>${item.descricao ?? '-'}</td>
-        </tr>
-      `).join('');
-
-      div.innerHTML = `
-        <div class="card card-consulta">
-          <div class="card-body p-4">
-            <h5 class="fw-bold mb-3">Resultados (${data.total})</h5>
-            <div class="table-responsive">
-              <table class="table table-striped align-middle mb-0">
-                <thead>
-                  <tr>
-                    <th>ID</th>
-                    <th>Nome</th>
-                    <th>Telefone</th>
-                    <th>Tipo</th>
-                    <th>Descrição</th>
-                  </tr>
-                </thead>
-                <tbody>${linhas}</tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      `;
-    }
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>
