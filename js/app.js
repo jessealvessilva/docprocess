@@ -3,6 +3,7 @@
 const API_URL = 'https://purple-resonance-193c.raspy-pond-9283.workers.dev';
 const LOGIN_ENDPOINT = '/api/b2b/auth/login';
 const CHAVE_CLIENTE = 'portalCliente';
+const PAGINA_PEDIDOS = 'pedidos.html';
 
 const app = document.getElementById('app');
 app.innerHTML = `
@@ -84,6 +85,7 @@ form.addEventListener('submit', async (event) => {
   botao.disabled = true;
   document.getElementById('textoEntrar').textContent = 'Autenticando...';
   informar('');
+  sessionStorage.removeItem(CHAVE_CLIENTE);
 
   // Não armazenar usuário/senha em localStorage, sessionStorage ou URL.
   const usuario = usuarioInput.value.trim();
@@ -115,19 +117,23 @@ form.addEventListener('submit', async (event) => {
       throw new Error('Não foi possível autenticar. Tente novamente.');
     }
 
-    // Contrato esperado: HTTP 2xx + { autenticado: true }.
-    // Não considerar HTTP 200 isoladamente como login válido.
-    if (!dados || dados.autenticado !== true) {
-      throw new Error('Resposta de autenticação inesperada. Verifique o contrato da API.');
+    // O Protheus/Worker deve sinalizar explicitamente o sucesso.
+    // Formatos aceitos: { autenticado: true } ou { success: true }.
+    // HTTP 200 sozinho NÃO é suficiente para autorizar a navegação.
+    const autenticado = dados && (dados.autenticado === true || dados.success === true);
+    if (!autenticado) {
+      throw new Error('A autenticação não foi confirmada. Verifique a resposta do Protheus.');
     }
 
-    // Apenas informações de exibição. NÃO é uma credencial nem prova de autenticação.
+    // Armazena apenas dados de apresentação, jamais senha ou token.
+    // A autenticação/autorização real deve ser mantida no Worker/servidor.
     const cliente = dados.cliente && typeof dados.cliente === 'object' ? dados.cliente : {};
-    sessionStorage.setItem(CHAVE_CLIENTE, JSON.stringify({
-      name: String(cliente.nome ?? cliente.name ?? usuario).slice(0, 100)
-    }));
+    const nome = String(cliente.nome ?? cliente.name ?? usuario).slice(0, 100);
+    sessionStorage.setItem(CHAVE_CLIENTE, JSON.stringify({ name: nome }));
     senhaInput.value = '';
-    window.location.assign('pedidos.html');
+
+    // Direciona à página independente de importação de pedidos.
+    window.location.replace(PAGINA_PEDIDOS);
   } catch (erro) {
     informar(erro.name === 'AbortError'
       ? 'Tempo de resposta excedido. Tente novamente.'

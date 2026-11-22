@@ -421,6 +421,7 @@ function gerarPedidoTeste() {
 
 
 function retornarLogin() {
+  sessionStorage.removeItem(CHAVE_CLIENTE);
   window.location.assign('index.html');
 }
 
